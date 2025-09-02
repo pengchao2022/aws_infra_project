@@ -10,6 +10,13 @@ resource "aws_security_group" "alb_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+   # 允许 ICMP (ping)
+  ingress {
+    from_port   = -1  # ICMP 类型为 -1
+    to_port     = -1  # ICMP 代码为 -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]  # 或限制为特定 IP 范围
+  }
 
   egress {
     from_port   = 0
