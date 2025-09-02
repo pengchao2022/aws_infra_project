@@ -1,11 +1,13 @@
 variable "vpc_id" {
-  description = "VPC ID"
+  description = "ID of the existing VPC"
   type        = string
+  default     = ""  # 添加空字符串作为默认值
 }
 
 variable "subnet_ids" {
-  description = "子网ID列表"
+  description = "List of existing subnet IDs"
   type        = list(string)
+  default     = []  # 添加空列表作为默认值
 }
 
 variable "environment" {
